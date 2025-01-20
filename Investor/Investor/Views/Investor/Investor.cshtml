@@ -1,0 +1,184 @@
+﻿
+@{
+    ViewBag.Title = "Investor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content mt-2" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="card">
+                   
+                    <div class="card-header">
+                     
+                            <h4 class="fw-bold mb-3">Investor</h4>
+                     
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="mb-3">
+                               @*  <label for="exampleFormControlInput1" class="form-label">Category Name</label> *@
+                                <select id="DrpInvestors" class=" form-select form-control" data-allow-clear="true" placeholder="Select..">
+                                    <option value="" selected>Select</option>
+                                    
+                                </select>
+                            </div>
+                              <div class="card-tools">
+                           
+                            <div class="custom-control custom-switch mr-2">
+                                <button id="btnAdd" class="btn btn-primary" data-toggle="modal" data-target="#UserMasterModal">
+                                    Create
+                                </button>
+                                   <button id="btnAddFund" class="btn btn-primary" data-toggle="modal" data-target="#FundsModal">
+                                    Add Fund
+                                </button>
+                            </div>
+
+                        </div>
+                      
+                        </div>
+                        
+                      
+                    </div>
+                    <div class="card-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="desktopview">
+                                    <table class="table table-sm table-hover table-striped w-100" id="Tbl_Investor">
+                                        <thead class="">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Country</th>
+                                                <th>FundsInvestedIn</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                      
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="UserMasterModal" data-backdrop="static" tabindex="-1" aria-labelledby="ComplaintAllocationModal" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="headAdd">Add Investor</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                
+                        <div class="col-12 mb-2">
+                            <label for="txtName" class="form-label">Name</label>
+                            <input type="text" id="txtName"  autocomplete="off" class="form-control" placeholder="Enter Name">
+                        </div>
+
+                        <div class="col-12 mb-2 ">
+
+                            <label for="txtPhone" class="form-label">Phone</label>
+                            <input type="text" id="txtPhone" maxlength="10" class="form-control" autocomplete="off" placeholder="Enter Phone">
+
+                        </div>
+                      
+                        <div class="col-12 mb-2">
+
+                            <label for="txtEmail" class="form-label">Email</label>
+                            <input type="text" id="txtEmail" maxlength="100" autocomplete="off" class="form-control" placeholder="Enter Email">
+
+                        </div>
+                        <div class="col-12 mb-2">
+                            <label for="txtCountry" class="form-label">Country</label>
+                            <input type="text" id="txtCountry" maxlength="10" autocomplete="off" class="form-control" placeholder="Enter Country">
+                        </div>
+                        <div id="divFundInvestedIn" class="col-12 mb-2">
+                            <label for="txtFundsInvestedIn" class="form-label">FundsInvestedIn</label>
+                            <input type="text" id="txtFundsInvestedIn" autocomplete="off" class="form-control">
+                        </div>
+                
+                   
+
+
+                </div>
+
+
+
+
+            </div>
+            <div class="modal-footer p-1">
+                <div class="float-right">
+                    <button id="btnSubmit" type="button" class="btn btn-primary">Save</button>
+                    <button id="btnUpdate" type="button" class="btn btn-primary" style="display:none">Update</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="Cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+<div class="modal" id="FundsModal" data-backdrop="static" tabindex="-1" aria-labelledby="CModal" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">Add Investor Fund</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                 
+                        <div class="col-12 mb-2">
+                            <label for="txtName" class="form-label">Investor</label>
+                             <select id="DrpFundInvestors" class=" form-select form-control" data-allow-clear="true" placeholder="Select..">
+                                    <option value="" selected>Select</option>
+                                    
+                                </select>
+                        </div>
+
+                        <div class="col-12 mb-2 position-relative">
+
+                            <label for="DrpFunds" class="form-label">Fund</label>
+                              <select id="DrpFunds" class=" form-select form-control" data-allow-clear="true" placeholder="Select..">
+                                    <option value="" selected>Select</option>
+                                    
+                                </select>
+
+                        </div>
+                      
+
+                        
+                  
+                   
+
+
+                </div>
+
+
+
+
+            </div>
+            <div class="modal-footer p-1">
+                <div class="float-right">
+                    <button id="btnFundSubmit" type="button" class="btn btn-primary">Save</button>
+                    <button id="btnUpdate" type="button" class="btn btn-primary" style="display:none">Update</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+@section scripts{
+    <script src="~/Scripts/Investor.js"></script>
+
+}
